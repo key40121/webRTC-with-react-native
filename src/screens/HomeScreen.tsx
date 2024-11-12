@@ -21,6 +21,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       <Text>Current State: {state}</Text>
       <Text>Hello</Text>
       <Button title="Go to Details" onPress={() => navigation.navigate('Details')} />
+      <Button title="Go to Join" onPress={() => navigation.navigate('Join')} />
       <Button title="Update State" onPress={() => setState("Updated State from Home")} />
     </View>
   );
