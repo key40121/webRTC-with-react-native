@@ -12,16 +12,15 @@ import { RootStackParamList } from '../navigation/AppNavigator';
 
 import { mediaDevices, RTCView } from 'react-native-webrtc';
 
-type JoinScreenProps = StackScreenProps<RootStackParamList, 'Join'>;
+type CaptureScreenProps = StackScreenProps<RootStackParamList, 'Join'>;
 
-const JoinScreen: React.FC<JoinScreenProps> = ({ navigation }) => {
+const CaptureScreen: React.FC<CaptureScreenProps> = ({ navigation }) => {
 
   const [stream, setStream] = useState<MediaStream | null>(null);
 
   const start = async () => {
     try {
-      // const stream = await mediaDevices.getDisplayMedia({ video: true }); // This is for screen sharing.
-      const stream = await mediaDevices.getUserMedia({ video: true }) // This is a camera feed. If emurator, need a web camera from PC
+      const stream = await mediaDevices.getDisplayMedia(); // This is for screen sharing.
       setStream(stream);
       console.log(stream);
     } catch (error) {
@@ -78,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default JoinScreen;
+export default CaptureScreen;

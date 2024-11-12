@@ -4,12 +4,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import JoinScreen from '../screens/JoinScreen';
+import CaptureScreen from '../screens/CaptureScreen';
 
 // Stack Navigator の型定義
 export type RootStackParamList = {
   Home: undefined;
   Details: undefined;
   Join: undefined;
+  Capture: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -21,6 +23,7 @@ const AppNavigator: React.FC = () => {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
         <Stack.Screen name="Join" component={JoinScreen} />
+        <Stack.Screen name="Capture" component={CaptureScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
