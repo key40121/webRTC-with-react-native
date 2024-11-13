@@ -18,23 +18,30 @@ const CaptureScreen: React.FC<CaptureScreenProps> = ({ navigation }) => {
 
   const [stream, setStream] = useState<MediaStream | null>(null);
 
-  const start = async () => {
+  const startCapturing = async () => {
     try {
-      const stream = await mediaDevices.getDisplayMedia(); // This is for screen sharing.
+      const stream = await mediaDevices.getDisplayMedia();
       setStream(stream);
       console.log(stream);
     } catch (error) {
-      console.error("Screen share error:", error);
+      console.error("Capture screen error:", error);
     }
-  };
 
-  const stop = () => {
-    console.log('stop');
+    // const mediaRecorder = new MediaRecorder(stream); // This is not implemented in react-native-webrtc
+  }
+
+  const stopCapturing = () => {
+    console.log("stop capturing");
     if (stream) {
       stream.release();
       setStream(null);
     }
-  };
+  }
+
+  const playCapturing = () => {
+    console.log("Play capturing");
+
+  }
 
   return (
     <>
@@ -49,11 +56,11 @@ const CaptureScreen: React.FC<CaptureScreenProps> = ({ navigation }) => {
         <View
           style={styles.footer}>
           <Button
-            title="Start"
-            onPress={start} />
+            title="Start capture"
+            onPress={startCapturing} />
           <Button
-            title="Stop"
-            onPress={stop} />
+            title="Stop capture"
+            onPress={stopCapturing} />
         </View>
       </SafeAreaView>
     </>
