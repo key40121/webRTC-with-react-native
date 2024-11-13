@@ -23,6 +23,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       <Button title="Go to Details" onPress={() => navigation.navigate('Details')} />
       <Button title="Test video share" onPress={() => navigation.navigate('Join')} />
       <Button title="Test capturing screen" onPress={() => navigation.navigate('Capture')} />
+      <Button title="Test web socket" onPress={() => navigation.navigate('Socket')} />
       <Button title="Update State" onPress={() => setState("Updated State from Home")} />
     </View>
   );
